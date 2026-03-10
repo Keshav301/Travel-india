@@ -59,11 +59,12 @@
     }
 }
 
-/* Image Loading State */
-.img-loading {
-    transition: opacity 0.5s ease-out;
-}
+/* Image Loading State Removed to fix permanent blur bugs */
+.img-loading {}
 
+/* .img-loading {
+    transition: opacity 0.5s ease-out;
+} */
 .img-loaded {
     filter: blur(0);
     scale: 1;
