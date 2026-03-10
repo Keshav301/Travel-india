@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varanasi - The Spiritual Capital | Travel India</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <style>
+        /* Specific Place Page Styles */
+        .place-content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-xxl);
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .info-card h3 {
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Slider Specific CSS */
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .slider-track {
+            height: 100%;
+            position: relative;
+            display: flex;
+            cursor: grab;
+        }
+
+        .slider-track:active {
+            cursor: grabbing;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background: var(--white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn.prev {
+            left: 16px;
+        }
+
+        .slider-btn.next {
+            right: 16px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: var(--white);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            padding: 30px 20px 10px;
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .place-content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color: var(--light-bg); padding-top: var(--header-height);">
+
+    <!-- Header Navigation -->
+    <header class="navbar scrolled">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <h1>Travel India</h1>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../blogs.html" class="active">Blogs</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+            <button class="hamburger" aria-label="Toggle Navigation">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- Place Hero Banner -->
+    <section class="hero" style="height: 50vh; min-height: 400px; margin-top: -var(--header-height);">
+        <img src="../images/places/varanasi/varanasi1.jpg" alt="Varanasi Hero" class="hero-img img-loading"
+            style="filter: brightness(0.7);">
+        <div class="hero-content reveal-up">
+            <h1 class="h1-title">Varanasi</h1>
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; font-size: 0.875rem;">Uttar
+                Pradesh</p>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <section class="section container">
+        <div class="place-content-grid">
+
+            <!-- Left Column: Overview and Gallery -->
+            <div>
+                <!-- Image Gallery -->
+                <div class="mb-xxl reveal-up" style="margin-bottom: var(--spacing-xxl);">
+                    <h2 class="h3-title" style="margin-bottom: var(--spacing-md);">Varanasi Image Gallery</h2>
+                    <div class="slider">
+                        <button class="slider-btn prev">&#10094;</button>
+                        <div class="slider-track">
+                            <div class="slide">
+                                <img src="../images/places/varanasi/varanasi2.jpg" alt="Ganga Aarti"
+                                    class="img-loading">
+                                <div class="slide-caption">Mesmerizing Ganga Aarti</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/varanasi/varanasi3.jpg" alt="Kashi Vishwanath"
+                                    class="img-loading">
+                                <div class="slide-caption">Kashi Vishwanath Temple</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/varanasi/varanasi4.jpg" alt="Boat Ride" class="img-loading">
+                                <div class="slide-caption">Morning Boat Ride on the Ganges</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/varanasi/varanasi5.jpg" alt="Sarnath" class="img-loading">
+                                <div class="slide-caption">Sarnath Stupa</div>
+                            </div>
+                        </div>
+                        <button class="slider-btn next">&#10095;</button>
+                        <div class="slider-dots"></div>
+                    </div>
+                </div>
+
+                <!-- Overview -->
+                <div class="info-card reveal-up stagger-1">
+                    <h3>Overview</h3>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        Varanasi, also known as Benares or Kashi, is the spiritual capital of India. It is one of the
+                        oldest continuously inhabited cities in the world and the holiest of the seven sacred cities in
+                        Hinduism and Jainism. The city's beating heart is the sacred River Ganges, along whose banks are
+                        dozens of ghats—stone steps leading down to the water, where pilgrims perform rituals. Varanasi
+                        is a sensory overload of sights, sounds, and smells, offering an unparalleled glimpse into
+                        India's profound spirituality and ancient traditions.
+                    </p>
+                </div>
+
+                <!-- Things To Do -->
+                <div class="info-card reveal-up stagger-2">
+                    <h3>Things To Do</h3>
+                    <ul
+                        style="color: var(--text-muted); padding-left: 20px; list-style-type: disc; display: flex; flex-direction: column; gap: 10px;">
+                        <li>Take a serene sunrise boat ride on the River Ganges.</li>
+                        <li>Witness the spectacular evening Ganga Aarti at Dashashwamedh Ghat.</li>
+                        <li>Explore the narrow, winding alleys (galis) of the old city.</li>
+                        <li>Visit the sacred Kashi Vishwanath Temple (Golden Temple).</li>
+                        <li>Take a short trip to Sarnath, where Buddha gave his first sermon.</li>
+                        <li>Shop for world-famous Banarasi silk sarees.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Quick Facts -->
+            <div>
+                <!-- Location -->
+                <div class="info-card reveal-up stagger-3">
+                    <h3>Location</h3>
+                    <p class="text-sm">Situated on the banks of the Ganges in Uttar Pradesh, roughly 320 kilometers
+                        southeast of the state capital, Lucknow.</p>
+                </div>
+
+                <!-- Best Time to Visit -->
+                <div class="info-card reveal-up stagger-4">
+                    <h3>Best Time to Visit</h3>
+                    <p class="text-sm">The ideal time to visit Varanasi is from <strong>October to March</strong> when
+                        the weather is cool and pleasant for exploring the ghats.</p>
+                </div>
+
+                <!-- Top Attractions -->
+                <div class="info-card reveal-up stagger-1">
+                    <h3>Top Attractions</h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                        <span
+                            style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Dashashwamedh
+                            Ghat</span>
+                        <span
+                            style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Kashi
+                            Vishwanath Temple</span>
+                        <span
+                            style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Manikarnika
+                            Ghat</span>
+                        <span
+                            style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Sarnath
+                            Stupa</span>
+                        <span
+                            style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Ramnagar
+                            Fort</span>
+                    </div>
+                </div>
+
+                <!-- How To Reach -->
+                <div class="info-card reveal-up stagger-2">
+                    <h3>How To Reach</h3>
+                    <p class="text-sm"><strong>By Air:</strong> Lal Bahadur Shastri International Airport (VNS) connects
+                        Varanasi to major Indian cities.</p>
+                    <p class="text-sm" style="margin-top: 5px;"><strong>By Train:</strong> Varanasi Junction (BSB) is a
+                        major railway hub with excellent connectivity nationwide.</p>
+                    <p class="text-sm" style="margin-top: 5px;"><strong>By Road:</strong> Well-connected by national
+                        highways. Overnight buses run from Delhi, Lucknow, and regional hubs.</p>
+                </div>
+
+                <!-- Travel Tips -->
+                <div class="info-card reveal-up stagger-3">
+                    <h3>Travel Tips</h3>
+                    <p class="text-sm">
+                        - Be respectful at cremation ghats like Manikarnika; avoid taking photos.<br>
+                        - Expect crowds and narrow bustling streets—walk or use cycle rickshaws.<br>
+                        - Try local street food like chaat and lassi, but prefer bottled water.<br>
+                        - Arrive early to get the best spot for the evening Aarti.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border: none; padding-top: 0;">
+                <p>&copy; 2026 Travel India Blog. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="../js/slider.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agra - Taj Mahal | Travel India</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <style>
+        /* Specific Place Page Styles */
+        .place-content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-xxl);
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .info-card h3 {
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Slider Specific CSS */
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .slider-track {
+            height: 100%;
+            position: relative;
+            display: flex;
+            cursor: grab;
+        }
+
+        .slider-track:active {
+            cursor: grabbing;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background: var(--white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn.prev {
+            left: 16px;
+        }
+
+        .slider-btn.next {
+            right: 16px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: var(--white);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            padding: 30px 20px 10px;
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .place-content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color: var(--light-bg); padding-top: var(--header-height);">
+
+    <!-- Header Navigation -->
+    <header class="navbar scrolled">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <h1>Travel India</h1>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../blogs.html" class="active">Blogs</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+            <button class="hamburger" aria-label="Toggle Navigation">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- Place Hero Banner -->
+    <section class="hero" style="height: 50vh; min-height: 400px; margin-top: -var(--header-height);">
+        <img src="../images/places/agra/agra1.jpg" alt="Agra Hero" class="hero-img img-loading"
+            style="filter: brightness(0.7);">
+        <div class="hero-content reveal-up">
+            <h1 class="h1-title">Agra</h1>
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; font-size: 0.875rem;">Uttar
+                Pradesh</p>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <section class="section container">
+        <div class="place-content-grid">
+
+            <!-- Left Column: Overview and Gallery -->
+            <div>
+                <!-- Image Gallery -->
+                <div class="mb-xxl reveal-up" style="margin-bottom: var(--spacing-xxl);">
+                    <h2 class="h3-title" style="margin-bottom: var(--spacing-md);">Agra Image Gallery</h2>
+                    <div class="slider">
+                        <button class="slider-btn prev">&#10094;</button>
+                        <div class="slider-track">
+                            <div class="slide">
+                                <img src="../images/places/agra/agra2.jpg" alt="Taj Mahal" class="img-loading">
+                                <div class="slide-caption">The Majestic Taj Mahal</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/agra/agra3.jpg" alt="Agra Fort" class="img-loading">
+                                <div class="slide-caption">Agra Fort Architecture</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/agra/agra4.jpg" alt="Fatehpur Sikri" class="img-loading">
+                                <div class="slide-caption">Fatehpur Sikri</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/agra/agra5.jpg" alt="Agra Streets" class="img-loading">
+                                <div class="slide-caption">Bustling Streets of Agra</div>
+                            </div>
+                        </div>
+                        <button class="slider-btn next">&#10095;</button>
+                        <div class="slider-dots"></div>
+                    </div>
+                </div>
+
+                <!-- Overview -->
+                <div class="info-card reveal-up stagger-1">
+                    <h3>Overview</h3>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        Agra is synonymous with the Taj Mahal, but this historical city has much more to offer. Located
+                        on the banks of the Yamuna River in Uttar Pradesh, Agra forms the famous Golden Triangle circuit
+                        along with Delhi and Jaipur. The city is a masterpiece of Mughal architecture, housing three
+                        UNESCO World Heritage Sites: the Taj Mahal, Agra Fort, and Fatehpur Sikri. It is a bustling
+                        destination that beautifully blends history, culture, and magnificent monumental beauty.
+                    </p>
+                </div>
+
+                <!-- Things To Do -->
+                <div class="info-card reveal-up stagger-2">
+                    <h3>Things To Do</h3>
+                    <ul
+                        style="color: var(--text-muted); padding-left: 20px; list-style-type: disc; display: flex; flex-direction: column; gap: 10px;">
+                        <li>Watch the sunrise at the Taj Mahal for breathtaking views and fewer crowds.</li>
+                        <li>Explore the massive sandstone walls and palaces inside Agra Fort.</li>
+                        <li>Take a day trip to the ghost city of Fatehpur Sikri.</li>
+                        <li>Shop for exquisite marble inlay work, leather goods, and traditional rugs at Sadar Bazaar.
+                        </li>
+                        <li>Taste the famous Agra Petha (a sweet made from pumpkin) and savory Dalmoth.</li>
+                        <li>View the Taj Mahal from Mehtab Bagh at sunset across the river Yamuna.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Quick Facts -->
+            <div>
+                <!-- Location -->
+                <div class="info-card reveal-up stagger-3">
+                    <h3>Location</h3>
+                    <p class="text-sm">Agra is situated in the northern state of Uttar Pradesh, roughly 210 kilometers
+                        south of New Delhi.</p>
+                </div>
+
+                <!-- Best Time to Visit -->
+                <div class="info-card reveal-up stagger-4">
+                    <h3>Best Time to Visit</h3>
+                    <p class="text-sm">The best time to visit Agra is during the winter season, between <strong>October
+                            and March</strong>, when the weather is pleasant and perfect for sightseeing.</p>
+                </div>
+
+                <!-- Top Attractions -->
+                <div class="info-card reveal-up stagger-1">
+                    <h3>Top Attractions</h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                        <span
+                            style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Taj
+                            Mahal</span>
+                        <span
+                            style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Agra
+                            Fort</span>
+                        <span
+                            style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Fatehpur
+                            Sikri</span>
+                        <span
+                            style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Itimad-ud-Daulah's
+                            Tomb</span>
+                        <span
+                            style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Mehtab
+                            Bagh</span>
+                    </div>
+                </div>
+
+                <!-- How To Reach -->
+                <div class="info-card reveal-up stagger-2">
+                    <h3>How To Reach</h3>
+                    <p class="text-sm"><strong>By Air:</strong> Agra has a military airbase, but the nearest commercial
+                        airport is in New Delhi (DEL).</p>
+                    <p class="text-sm" style="margin-top: 5px;"><strong>By Train:</strong> Agra Cantt is well-connected
+                        to major Indian cities. The Gatimaan Express offers high-speed travel from Delhi.</p>
+                    <p class="text-sm" style="margin-top: 5px;"><strong>By Road:</strong> The Yamuna Expressway forms a
+                        fast and scenic route from Delhi to Agra.</p>
+                </div>
+
+                <!-- Travel Tips -->
+                <div class="info-card reveal-up stagger-3">
+                    <h3>Travel Tips</h3>
+                    <p class="text-sm">
+                        - The Taj Mahal is closed on Fridays.<br>
+                        - Book tickets for monuments online to avoid long queues.<br>
+                        - Beware of unregulated guides and touts; hire official guides.<br>
+                        - Dress modestly, especially when visiting religious sites.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border: none; padding-top: 0;">
+                <p>&copy; 2026 Travel India Blog. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="../js/slider.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
