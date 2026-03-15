@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaya - The Sacred City of Ancestors | Travel India</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <style>
+        /* Specific Place Page Styles */
+        .place-content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-xxl);
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .info-card h3 {
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Slider Specific CSS */
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .slider-track {
+            height: 100%;
+            position: relative;
+            display: flex;
+            cursor: grab;
+        }
+
+        .slider-track:active {
+            cursor: grabbing;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background: var(--white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn.prev {
+            left: 16px;
+        }
+
+        .slider-btn.next {
+            right: 16px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: var(--white);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            padding: 30px 20px 10px;
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .place-content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color: var(--light-bg); padding-top: var(--header-height);">
+
+    <!-- Header Navigation -->
+    <header class="navbar navbar-solid">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <h1>Travel India</h1>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../blogs.html" class="active">Blogs</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+            <button class="hamburger" aria-label="Toggle Navigation">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- Place Hero Banner -->
+    <section class="hero" style="height: 50vh; min-height: 400px; margin-top: -var(--header-height);">
+        <img src="../images/places/bihar/gaya/gaya1.jpg" alt="Gaya Hero" class="hero-img "
+             style="filter: brightness(0.7);">
+        <div class="hero-content reveal-up">
+            <h1 class="h1-title">Gaya</h1>
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; font-size: 0.875rem;">Bihar</p>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <section class="section container">
+        <div class="place-content-grid">
+
+            <!-- Left Column: Overview and Gallery -->
+            <div>
+                <!-- Image Gallery -->
+                <div class="mb-xxl reveal-up" style="margin-bottom: var(--spacing-xxl);">
+                    <h2 class="h3-title" style="margin-bottom: var(--spacing-md);">Gaya Image Gallery</h2>
+                    <div class="slider">
+                        <button class="slider-btn prev">&#10094;</button>
+                        <div class="slider-track">
+                            <div class="slide">
+                                <img src="../images/places/bihar/gaya/gaya1.jpg" alt="Vishnupad" class="">
+                                <div class="slide-caption">The Ancient Vishnupad Temple on the banks of Falgu</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/bihar/gaya/gaya2.jpg" alt="Falgu River" class="">
+                                <div class="slide-caption">The Sacred Falgu River during the Pitrupaksha Mela</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/bihar/gaya/gaya3.jpg" alt="Pind Daan" class="">
+                                <div class="slide-caption">Devotees performing the Pind Daan ritual</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/bihar/gaya/gaya4.jpg" alt="Mangla Gauri" class="">
+                                <div class="slide-caption">Mangla Gauri Temple - A Shakti Peetha</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/bihar/gaya/gaya5.jpg" alt="Town" class="">
+                                <div class="slide-caption">Overview of the historic Gaya city</div>
+                            </div>
+                        </div>
+                        <button class="slider-btn next">&#10095;</button>
+                        <div class="slider-dots"></div>
+                    </div>
+                </div>
+
+                <!-- Overview -->
+                <div class="info-card reveal-up stagger-1">
+                    <h3>Overview</h3>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        Gaya is one of the most important spiritual hubs in India, particularly for Hindus who visit the city to perform the 'Pind Daan' ritual for their ancestors' salvation. Located on the banks of the Falgu River, the city is holy to both Hindus and Buddhists (with Bodh Gaya just 12 km away). The most famous landmark is the Vishnupad Temple, situated by the river, which is said to house the footprint of Lord Vishnu on a solid rock. The city finds mention in the Ramayana and Mahabharata, as well as in the records of ancient travelers.
+                    </p>
+                </div>
+
+                <!-- Things To Do -->
+                <div class="info-card reveal-up stagger-2">
+                    <h3>Things To Do</h3>
+                    <ul style="color: var(--text-muted); padding-left: 20px; list-style-type: disc; display: flex; flex-direction: column; gap: 10px;">
+                        <li>Visit the Vishnupad Temple and admire its 18th-century architecture and sacred footprints.</li>
+                        <li>Participate in or observe the Pind Daan rituals on the ghats of the Falgu River.</li>
+                        <li>Climb the 1,000 steps of Brahmajuni Hill for a panoramic view of the city and surroundings.</li>
+                        <li>Visit the Mangla Gauri Temple, an important Shakti Peetha for Hindu devotees.</li>
+                        <li>Explore the ancient caves and temples in the nearby Barabar Caves complex.</li>
+                        <li>Witness the vibrant atmosphere during the Pitrupaksha Mela held annually in September/October.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Quick Facts -->
+            <div>
+                <!-- Location -->
+                <div class="info-card reveal-up stagger-3">
+                    <h3>Location</h3>
+                    <p class="text-sm">Gaya is located in South Bihar, situated about 100 km from the state capital, Patna.</p>
+                </div>
+
+                <!-- Best Time to Visit -->
+                <div class="info-card reveal-up stagger-4">
+                    <h3>Best Time to Visit</h3>
+                    <p class="text-sm">The best time to visit is from <strong>October to March</strong>. The Pitrupaksha Mela (Sept/Oct) is a major religious period but can be very crowded.</p>
+                </div>
+
+                <!-- Top Attractions -->
+                <div class="info-card reveal-up stagger-1">
+                    <h3>Top Attractions</h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Vishnupad Temple</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Falgu River Ghats</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Mangla Gauri Temple</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Brahmajuni Hill</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Dungeshwari Caves</span>
+                    </div>
+                </div>
+
+                <!-- How To Reach -->
+                <div class="info-card reveal-up stagger-2">
+                    <h3>How To Reach</h3>
+                    <p class="text-sm"><strong>By Air:</strong> Gaya International Airport is very close; Patna Airport (100 km) is the nearest major hub.</p>
+                    <p class="text-sm" style="margin-top: 5px;"><strong>By Train:</strong> Gaya Junction is a major railway station well-connected to Delhi, Kolkata, and Mumbai.</p>
+                    <p class="text-sm" style="margin-top: 5px;"><strong>By Road:</strong> Very well-connected by road; regular buses operate from Patna, Varanasi, and Ranchi.</p>
+                </div>
+
+                <!-- Travel Tips -->
+                <div class="info-card reveal-up stagger-3">
+                    <h3>Travel Tips</h3>
+                    <p class="text-sm">
+                        - Be wary of touts and unverified priests at the river ghats; it's best to pre-arrange any rituals through reputable sources.<br>
+                        - Wear comfortable cotton clothing, especially if visiting during the warmer months.<br>
+                        - Respect the solemnity of the funeral rituals being performed at the riverfront.<br>
+                        - Carry change of clothes if you plan on taking a dip in the holy river.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border: none; padding-top: 0;">
+                <p>&copy; 2026 Travel India Blog. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="../js/slider.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

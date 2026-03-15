@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikramshila - The Ancient Pinnacle of Wisdom | Travel India</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <style>
+        /* Specific Place Page Styles */
+        .place-content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-xxl);
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .info-card h3 {
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Slider Specific CSS */
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .slider-track {
+            height: 100%;
+            position: relative;
+            display: flex;
+            cursor: grab;
+        }
+
+        .slider-track:active {
+            cursor: grabbing;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background: var(--white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn.prev {
+            left: 16px;
+        }
+
+        .slider-btn.next {
+            right: 16px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: var(--white);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            padding: 30px 20px 10px;
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .place-content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color: var(--light-bg); padding-top: var(--header-height);">
+
+    <!-- Header Navigation -->
+    <header class="navbar navbar-solid">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <h1>Travel India</h1>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../blogs.html" class="active">Blogs</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+            <button class="hamburger" aria-label="Toggle Navigation">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- Place Hero Banner -->
+    <section class="hero" style="height: 50vh; min-height: 400px; margin-top: -var(--header-height);">
+        <img src="../images/places/bihar/vikramshila/vikramshila1.jpg" alt="Vikramshila Hero" class="hero-img "
+             style="filter: brightness(0.7);">
+        <div class="hero-content reveal-up">
+            <h1 class="h1-title">Vikramshila</h1>
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; font-size: 0.875rem;">Bihar</p>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <section class="section container">
+        <div class="place-content-grid">
+
+            <!-- Left Column: Overview and Gallery -->
+            <div>
+                <!-- Image Gallery -->
+                <div class="mb-xxl reveal-up" style="margin-bottom: var(--spacing-xxl);">
+                    <h2 class="h3-title" style="margin-bottom: var(--spacing-md);">Vikramshila Image Gallery</h2>
+                    <div class="slider">
+                        <button class="slider-btn prev">&#10094;</button>
+                        <div class="slider-track">
+                            <div class="slide">
+                                <img src="../images/places/bihar/vikramshila/vikramshila1.jpg" alt="Main Stupa" class="">
+                                <div class="slide-caption">The Main Excavated Stupa of Vikramshila</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/bihar/vikramshila/vikramshila2.jpg" alt="Ruins" class="">
+                                <div class="slide-caption">Archaeological Ruins of the ancient University</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/bihar/vikramshila/vikramshila3.jpg" alt="Terracotta" class="">
+                                <div class="slide-caption">Intricate Terracotta plaques on the stupa walls</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/bihar/vikramshila/vikramshila4.jpg" alt="Monastery" class="">
+                                <div class="slide-caption">Layout of the Residential Monasteries</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/bihar/vikramshila/vikramshila5.jpg" alt="Museum" class="">
+                                <div class="slide-caption">Artifacts at the Vikramshila Site Museum</div>
+                            </div>
+                        </div>
+                        <button class="slider-btn next">&#10095;</button>
+                        <div class="slider-dots"></div>
+                    </div>
+                </div>
+
+                <!-- Overview -->
+                <div class="info-card reveal-up stagger-1">
+                    <h3>Overview</h3>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        Vikramshila was one of the two most important centers of Buddhist learning in India during the Pala Empire, along with Nalanda. Established by King Dharmapala in the late 8th or early 9th century, it specialized in Vajrayana (Tantric) Buddhism. The university site at Antichak village features a massive stupa in the center of a square monastery complex. Known for its academic excellence, it once attracted students from as far as Tibet. Today, the excavated ruins stand as a testament to the intellectual grandeur and architectural prowess of the Pala dynasty.
+                    </p>
+                </div>
+
+                <!-- Things To Do -->
+                <div class="info-card reveal-up stagger-2">
+                    <h3>Things To Do</h3>
+                    <ul style="color: var(--text-muted); padding-left: 20px; list-style-type: disc; display: flex; flex-direction: column; gap: 10px;">
+                        <li>Explore the massive central stupa and the vast surrounding monastic cells.</li>
+                        <li>Admire the various terracotta plaques on the walls of the stupa depicting diverse themes.</li>
+                        <li>Visit the Site Museum to see the excavated stone and bronze sculptures from the university.</li>
+                        <li>Take an early morning walk to witness the ruins in the soft golden light.</li>
+                        <li>Learn about the history of the university and its role in spreading Buddhism to Tibet.</li>
+                        <li>Visit the nearby Bateshwar Sthan for a peaceful view of the Ganges.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Quick Facts -->
+            <div>
+                <!-- Location -->
+                <div class="info-card reveal-up stagger-3">
+                    <h3>Location</h3>
+                    <p class="text-sm">Vikramshila is located near Antichak village in the Bhagalpur district of eastern Bihar, about 50 km from Bhagalpur city.</p>
+                </div>
+
+                <!-- Best Time to Visit -->
+                <div class="info-card reveal-up stagger-4">
+                    <h3>Best Time to Visit</h3>
+                    <p class="text-sm">The best time to visit is from <strong>October to March</strong>. The Vikramshila Mahotsav (usually in Feb/March) is a significant local festival.</p>
+                </div>
+
+                <!-- Top Attractions -->
+                <div class="info-card reveal-up stagger-1">
+                    <h3>Top Attractions</h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">The Excavated Main Stupa</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">University Monastery Ruins</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Archaeological Site Museum</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Terracotta Artworks</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Bateshwar Sthan (Nearby)</span>
+                    </div>
+                </div>
+
+                <!-- How To Reach -->
+                <div class="info-card reveal-up stagger-2">
+                    <h3>How To Reach</h3>
+                    <p class="text-sm"><strong>By Air:</strong> Patna Airport (approx. 270 km) or Bagdogra Airport (approx. 220 km).</p>
+                    <p class="text-sm" style="margin-top: 5px;"><strong>By Train:</strong> Bhagalpur (50 km) is the nearest major railway station; Kahalgaon (13 km) is the local station.</p>
+                    <p class="text-sm" style="margin-top: 5px;"><strong>By Road:</strong> Very well-connected by road; local taxis and regular buses are available from Bhagalpur city.</p>
+                </div>
+
+                <!-- Travel Tips -->
+                <div class="info-card reveal-up stagger-3">
+                    <h3>Travel Tips</h3>
+                    <p class="text-sm">
+                        - Wear comfortable walking shoes as the site is extensive and requires a fair amount of walking.<br>
+                        - Carry drinking water and snacks as there are limited facilities directly at the site.<br>
+                        - Hiring a local guide will enrich your experience and understanding of the ruins.<br>
+                        - Respect the historical ruins; do not litter or climb on the walls.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border: none; padding-top: 0;">
+                <p>&copy; 2026 Travel India Blog. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="../js/slider.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

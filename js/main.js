@@ -7,13 +7,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Dynamic Navbar Scrolling
     const navbar = document.querySelector('.navbar');
 
+    let lastScrollY = window.scrollY;
+
     // Function to check scroll position
     const checkScroll = () => {
-        if (window.scrollY > 50) {
+        const currentScrollY = window.scrollY;
+
+        // 1. Dynamic Background (White when scrolled > 50px)
+        if (currentScrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
+
+        // 2. Hide on Scroll Down, Show on Scroll Up
+        if (currentScrollY > lastScrollY && currentScrollY > 150) {
+            // Scrolling down and past threshold
+            navbar.classList.add('nav-hidden');
+        } else {
+            // Scrolling up or at the top
+            navbar.classList.remove('nav-hidden');
+        }
+
+        lastScrollY = currentScrollY;
     };
 
     // Initial check and event listener

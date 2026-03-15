@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palolem Beach - The Crescent Haven of South Goa | Travel India</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <style>
+        /* Specific Place Page Styles */
+        .place-content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-xxl);
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .info-card h3 {
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Slider Specific CSS */
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .slider-track {
+            height: 100%;
+            position: relative;
+            display: flex;
+            cursor: grab;
+        }
+
+        .slider-track:active {
+            cursor: grabbing;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background: var(--white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn.prev {
+            left: 16px;
+        }
+
+        .slider-btn.next {
+            right: 16px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: var(--white);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            padding: 30px 20px 10px;
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .place-content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color: var(--light-bg); padding-top: var(--header-height);">
+
+    <!-- Header Navigation -->
+    <header class="navbar navbar-solid">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <h1>Travel India</h1>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../blogs.html" class="active">Blogs</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+            <button class="hamburger" aria-label="Toggle Navigation">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- Place Hero Banner -->
+    <section class="hero" style="height: 50vh; min-height: 400px; margin-top: -var(--header-height);">
+        <img src="../images/places/goa/palolem/palolem1.jpg" alt="Palolem Hero" class="hero-img "
+             style="filter: brightness(0.7);">
+        <div class="hero-content reveal-up">
+            <h1 class="h1-title">Palolem Beach</h1>
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; font-size: 0.875rem;">Goa</p>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <section class="section container">
+        <div class="place-content-grid">
+
+            <!-- Left Column: Overview and Gallery -->
+            <div>
+                <!-- Image Gallery -->
+                <div class="mb-xxl reveal-up" style="margin-bottom: var(--spacing-xxl);">
+                    <h2 class="h3-title" style="margin-bottom: var(--spacing-md);">Palolem Image Gallery</h2>
+                    <div class="slider">
+                        <button class="slider-btn prev">&#10094;</button>
+                        <div class="slider-track">
+                            <div class="slide">
+                                <img src="../images/places/goa/palolem/palolem1.jpg" alt="Aerial" class="">
+                                <div class="slide-caption">Aerial View of the Crescent Beach</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/goa/palolem/palolem2.jpg" alt="Shacks" class="">
+                                <div class="slide-caption">Colorful Beach Shacks and Huts</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/goa/palolem/palolem3.jpg" alt="Kayaking" class="">
+                                <div class="slide-caption">Kayaking in the Calm Waters</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/goa/palolem/palolem4.jpg" alt="Island" class="">
+                                <div class="slide-caption">Exploring the Butterfly Island Nearby</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/goa/palolem/palolem5.jpg" alt="Sunset" class="">
+                                <div class="slide-caption">Serene Sunset Atmosphere</div>
+                            </div>
+                        </div>
+                        <button class="slider-btn next">&#10095;</button>
+                        <div class="slider-dots"></div>
+                    </div>
+                </div>
+
+                <!-- Overview -->
+                <div class="info-card reveal-up stagger-1">
+                    <h3>Overview</h3>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        Palolem Beach is a natural bay surrounded by lofty headlands on either side, resulting in a calm, idyllic sea with a gently sloping bed. Located in South Goa, it's widely considered one of the most beautiful and scenic beaches in the state. Popular for its colorful wooden beach huts and a relaxed, community-like vibe, Palolem is a world away from the busy and loud beaches of North Goa. It is favored by families, couples, and those seeking a quieter, more soulful Goan holiday.
+                    </p>
+                </div>
+
+                <!-- Things To Do -->
+                <div class="info-card reveal-up stagger-2">
+                    <h3>Things To Do</h3>
+                    <ul style="color: var(--text-muted); padding-left: 20px; list-style-type: disc; display: flex; flex-direction: column; gap: 10px;">
+                        <li>Rent a kayak and explore the calm waters of the bay and nearby small islands.</li>
+                        <li>Take a boat trip to Butterfly Beach or Honeymoon Beach for a secluded experience.</li>
+                        <li>Participate in a Silent Noise Disco, a unique party where music is heard through headphones.</li>
+                        <li>Join a sunrise or sunset yoga class on the beach sand.</li>
+                        <li>Go dolphin spotting early in the morning with a local boatman.</li>
+                        <li>Walk to the 'Backwater Canal' at the north end of the beach for a peaceful nature walk.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Quick Facts -->
+            <div>
+                <!-- Location -->
+                <div class="info-card reveal-up stagger-3">
+                    <h3>Location</h3>
+                    <p class="text-sm">Palolem is located in Canacona, South Goa, about 35 km from Madgaon and 60 km from Panaji.</p>
+                </div>
+
+                <!-- Best Time to Visit -->
+                <div class="info-card reveal-up stagger-4">
+                    <h3>Best Time to Visit</h3>
+                    <p class="text-sm">The best time to visit is from <strong>November to March</strong>. The seasonal beach huts are dismantled during the monsoon (June-September).</p>
+                </div>
+
+                <!-- Top Attractions -->
+                <div class="info-card reveal-up stagger-1">
+                    <h3>Top Attractions</h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Palolem Crescent Beach</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Butterfly Beach</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Silent Noise Disco</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Cotigao Wildlife Sanctuary</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Canacona Backwaters</span>
+                    </div>
+                </div>
+
+                <!-- How To Reach -->
+                <div class="info-card reveal-up stagger-2">
+                    <h3>How To Reach</h3>
+                    <p class="text-sm"><strong>By Air:</strong> Dabolim Airport is approx. 60 km away.</p>
+                    <p class="text-sm" style="margin-top: 5px;"><strong>By Train:</strong> Canacona (CO) is the local station; Madgaon (MAO) is the nearest major station (approx. 35 km).</p>
+                    <p class="text-sm" style="margin-top: 5px;"><strong>By Road:</strong> Very well-connected by road; frequent buses and taxis from Madgaon city.</p>
+                </div>
+
+                <!-- Travel Tips -->
+                <div class="info-card reveal-up stagger-3">
+                    <h3>Travel Tips</h3>
+                    <p class="text-sm">
+                        - Book your beach hut in advance if you plan to stay directly on the shoreline.<br>
+                        - Respect the 'No Plastic' initiatives and keep the beach and water clean.<br>
+                        - Be careful about tides when walking to the nearby islands or secluded bays.<br>
+                        - Carry enough cash as ATMs in Canacona can occasionally run out during peak weekends.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border: none; padding-top: 0;">
+                <p>&copy; 2026 Travel India Blog. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="../js/slider.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

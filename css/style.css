@@ -219,13 +219,18 @@ img {
   height: var(--header-height);
   background: transparent;
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, transform 0.4s ease, box-shadow 0.3s ease;
   padding: 0 var(--spacing-xl);
 }
 
-.navbar.scrolled {
+.navbar.scrolled,
+.navbar.navbar-solid {
   background: var(--white);
   box-shadow: var(--shadow-sm);
+}
+
+.navbar.nav-hidden {
+  transform: translateY(-100%);
 }
 
 .navbar .nav-container {
@@ -244,7 +249,8 @@ img {
   transition: color 0.3s ease;
 }
 
-.navbar.scrolled .nav-logo h1 {
+.navbar.scrolled .nav-logo h1,
+.navbar.navbar-solid .nav-logo h1 {
   color: var(--primary-color);
 }
 
@@ -267,7 +273,8 @@ img {
   color: var(--text-main);
 }
 
-.navbar.scrolled .nav-links a {
+.navbar.scrolled .nav-links a,
+.navbar.navbar-solid .nav-links a {
   color: var(--text-main);
 }
 
@@ -295,7 +302,8 @@ img {
   color: var(--white);
 }
 
-.navbar.scrolled .hamburger {
+.navbar.scrolled .hamburger,
+.navbar.navbar-solid .hamburger {
   color: var(--text-main);
 }
 

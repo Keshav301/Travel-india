@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munnar - The Tea Paradise of Kerala | Travel India</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <style>
+        /* Specific Place Page Styles */
+        .place-content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-xxl);
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .info-card h3 {
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Slider Specific CSS */
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .slider-track {
+            height: 100%;
+            position: relative;
+            display: flex;
+            cursor: grab;
+        }
+
+        .slider-track:active {
+            cursor: grabbing;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background: var(--white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn.prev {
+            left: 16px;
+        }
+
+        .slider-btn.next {
+            right: 16px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: var(--white);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            padding: 30px 20px 10px;
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .place-content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color: var(--light-bg); padding-top: var(--header-height);">
+
+    <!-- Header Navigation -->
+    <header class="navbar navbar-solid">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <h1>Travel India</h1>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../blogs.html" class="active">Blogs</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+            <button class="hamburger" aria-label="Toggle Navigation">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- Place Hero Banner -->
+    <section class="hero" style="height: 50vh; min-height: 400px; margin-top: -var(--header-height);">
+        <img src="../images/places/kerala/munnar/munnar1.jpg" alt="Munnar Hero" class="hero-img "
+             style="filter: brightness(0.7);">
+        <div class="hero-content reveal-up">
+            <h1 class="h1-title">Munnar</h1>
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; font-size: 0.875rem;">Kerala</p>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <section class="section container">
+        <div class="place-content-grid">
+
+            <!-- Left Column: Overview and Gallery -->
+            <div>
+                <!-- Image Gallery -->
+                <div class="mb-xxl reveal-up" style="margin-bottom: var(--spacing-xxl);">
+                    <h2 class="h3-title" style="margin-bottom: var(--spacing-md);">Munnar Image Gallery</h2>
+                    <div class="slider">
+                        <button class="slider-btn prev">&#10094;</button>
+                        <div class="slider-track">
+                            <div class="slide">
+                                <img src="../images/places/kerala/munnar/munnar1.jpg" alt="Tea Gardens" class="">
+                                <div class="slide-caption">Endless Rolling Tea Estates</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/kerala/munnar/munnar2.jpg" alt="Mountains" class="">
+                                <div class="slide-caption">Misty Mountains of the Western Ghats</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/kerala/munnar/munnar3.jpg" alt="Waterfall" class="">
+                                <div class="slide-caption">Cascading Waterfalls in the Valley</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/kerala/munnar/munnar4.jpg" alt="Lake" class="">
+                                <div class="slide-caption">Serene Mattupetty Dam Reservoir</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/kerala/munnar/munnar5.jpg" alt="Wildlife" class="">
+                                <div class="slide-caption">Home to the Nilgiri Tahr in Eravikulam</div>
+                            </div>
+                        </div>
+                        <button class="slider-btn next">&#10095;</button>
+                        <div class="slider-dots"></div>
+                    </div>
+                </div>
+
+                <!-- Overview -->
+                <div class="info-card reveal-up stagger-1">
+                    <h3>Overview</h3>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        Munnar, a breathtakingly beautiful hill station in Kerala, is situated at the confluence of three mountain streams—Mudrappuza, Nallathanni, and Kundala. Once the summer resort of the British Government in South India, it's famous for its sprawling tea plantations, picture-book towns, winding lanes, and holiday facilities. Munnar is also home to Eravikulam National Park, where the endangered Nilgiri Tahr thrives, and Anamudi Peak, the highest peak in South India.
+                    </p>
+                </div>
+
+                <!-- Things To Do -->
+                <div class="info-card reveal-up stagger-2">
+                    <h3>Things To Do</h3>
+                    <ul style="color: var(--text-muted); padding-left: 20px; list-style-type: disc; display: flex; flex-direction: column; gap: 10px;">
+                        <li>Take a guided tour through the emerald-green tea estates.</li>
+                        <li>Visit the Tata Tea Museum to learn about tea processing history.</li>
+                        <li>Explore Eravikulam National Park and spot the Nilgiri Tahr.</li>
+                        <li>Enjoy boating at Mattupetty Dam and Kundala Lake.</li>
+                        <li>Hike to Echo Point and hear your voice resonate across the hills.</li>
+                        <li>Witness the Attukad Waterfalls in their full glory during or after monsoon.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Quick Facts -->
+            <div>
+                <!-- Location -->
+                <div class="info-card reveal-up stagger-3">
+                    <h3>Location</h3>
+                    <p class="text-sm">Munnar is located in the Idukki district of Kerala, in the Western Ghats mountain range.</p>
+                </div>
+
+                <!-- Best Time to Visit -->
+                <div class="info-card reveal-up stagger-4">
+                    <h3>Best Time to Visit</h3>
+                    <p class="text-sm">The best time to visit is from <strong>September to March</strong> for pleasant weather, and <strong>June to August</strong> for lush monsoon beauty.</p>
+                </div>
+
+                <!-- Top Attractions -->
+                <div class="info-card reveal-up stagger-1">
+                    <h3>Top Attractions</h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Eravikulam National Park</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Mattupetty Dam</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Tea Museum</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Anamudi Peak</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Echo Point</span>
+                    </div>
+                </div>
+
+                <!-- How To Reach -->
+                <div class="info-card reveal-up stagger-2">
+                    <h3>How To Reach</h3>
+                    <p class="text-sm"><strong>By Air:</strong> Cochin International Airport is the nearest (approx. 110 km).</p>
+                    <p class="text-sm" style="margin-top: 5px;"><strong>By Train:</strong> Aluva or Ernakulam are the closest major railway stations.</p>
+                    <p class="text-sm" style="margin-top: 5px;"><strong>By Road:</strong> Well-connected by scenic roads from Kochi, Madurai, and Coimbatore.</p>
+                </div>
+
+                <!-- Travel Tips -->
+                <div class="info-card reveal-up stagger-3">
+                    <h3>Travel Tips</h3>
+                    <p class="text-sm">
+                        - Carry a light sweater or jacket as it can get chilly in the evenings.<br>
+                        - Pre-book your entry to Eravikulam National Park online to avoid long queues.<br>
+                        - Wear comfortable walking shoes for exploring the tea gardens.<br>
+                        - Try the local "Munnar Tea" and various spices available at the markets.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border: none; padding-top: 0;">
+                <p>&copy; 2026 Travel India Blog. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="../js/slider.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

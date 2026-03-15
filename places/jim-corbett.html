@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jim Corbett - India's Oldest National Park | Travel India</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <style>
+        /* Specific Place Page Styles ... shared ... */
+        .place-content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-xxl);
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .info-card h3 {
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Slider Specific CSS */
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .slider-track {
+            height: 100%;
+            position: relative;
+            display: flex;
+            cursor: grab;
+        }
+
+        .slider-track:active {
+            cursor: grabbing;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background: var(--white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn.prev {
+            left: 16px;
+        }
+
+        .slider-btn.next {
+            right: 16px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: var(--white);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            padding: 30px 20px 10px;
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .place-content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color: var(--light-bg); padding-top: var(--header-height);">
+
+    <!-- Header Navigation -->
+    <header class="navbar navbar-solid">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <h1>Travel India</h1>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../blogs.html" class="active">Blogs</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+            <button class="hamburger" aria-label="Toggle Navigation">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- Place Hero Banner -->
+    <section class="hero" style="height: 50vh; min-height: 400px; margin-top: -var(--header-height);">
+        <img src="../images/places/jim-corbett/jim-corbett1.jpg" alt="Jim Corbett Hero" class="hero-img "
+             style="filter: brightness(0.7);">
+        <div class="hero-content reveal-up">
+            <h1 class="h1-title">Jim Corbett</h1>
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; font-size: 0.875rem;">Uttarakhand</p>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <section class="section container">
+        <div class="place-content-grid">
+
+            <!-- Left Column: Overview and Gallery -->
+            <div>
+                <!-- Image Gallery -->
+                <div class="mb-xxl reveal-up" style="margin-bottom: var(--spacing-xxl);">
+                    <h2 class="h3-title" style="margin-bottom: var(--spacing-md);">Jim Corbett Gallery</h2>
+                    <div class="slider">
+                        <button class="slider-btn prev">&#10094;</button>
+                        <div class="slider-track">
+                            <div class="slide">
+                                <img src="../images/places/jim-corbett/jim-corbett1.jpg" alt="Tiger" class="">
+                                <div class="slide-caption">The Majestic Bengal Tiger in the Wild</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/jim-corbett/jim-corbett2.jpg" alt="Safari" class="">
+                                <div class="slide-caption">Jungle Safari Experience in Dhikala</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/jim-corbett/jim-corbett3.jpg" alt="River" class="">
+                                <div class="slide-caption">The Ramganga River Flowing through the Park</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/jim-corbett/jim-corbett4.jpg" alt="Elephants" class="">
+                                <div class="slide-caption">Herds of Asian Elephants in their Habitat</div>
+                            </div>
+                            <div class="slide">
+                                <img src="../images/places/jim-corbett/jim-corbett5.jpg" alt="Lush Forest" class="">
+                                <div class="slide-caption">Dense Sal and Oak Forests</div>
+                            </div>
+                        </div>
+                        <button class="slider-btn next">&#10095;</button>
+                        <div class="slider-dots"></div>
+                    </div>
+                </div>
+
+                <!-- Overview -->
+                <div class="info-card reveal-up stagger-1">
+                    <h3>Overview</h3>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        Jim Corbett National Park, established in 1936 as Hailey National Park, is India's oldest national park and protected area. Named after the legendary hunter-turned-conservationist Jim Corbett, the park is famous for being the birthplace of Project Tiger. It is known for its diverse wildlife, including Bengal tigers, leopards, and over 600 species of birds. The park's varied landscape includes hills, riverine belts, marshy depressions, grasslands, and a large lake, making it a paradise for nature lovers and wildlife photography enthusiasts.
+                    </p>
+                </div>
+
+                <!-- Things To Do -->
+                <div class="info-card reveal-up stagger-2">
+                    <h3>Things To Do</h3>
+                    <ul style="color: var(--text-muted); padding-left: 20px; list-style-type: disc; display: flex; flex-direction: column; gap: 10px;">
+                        <li>Experience a thrilling Jeep Safari in the core zones of the park.</li>
+                        <li>Enjoy an Elephant Safari for a unique perspective on the jungle wildlife.</li>
+                        <li>Explore the Dhikala zone for its rich biodiversity and scenic views.</li>
+                        <li>Go birdwatching and spot rare avian species along the Ramganga.</li>
+                        <li>Visit the Corbett Museum in Kaladhungi, once the home of Jim Corbett.</li>
+                        <li>Stay at the forest rest houses inside the park for an immersive wilderness experience.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Quick Facts -->
+            <div>
+                <!-- Location -->
+                <div class="info-card reveal-up stagger-3">
+                    <h3>Location</h3>
+                    <p class="text-sm">Jim Corbett National Park is located in the Nainital district of Uttarakhand, near the town of Ramnagar.</p>
+                </div>
+
+                <!-- Best Time to Visit -->
+                <div class="info-card reveal-up stagger-4">
+                    <h3>Best Time to Visit</h3>
+                    <p class="text-sm">The best time to visit is from <strong>November to June</strong>. The park remains closed during the monsoon season (July to October) for wildlife safety.</p>
+                </div>
+
+                <!-- Top Attractions -->
+                <div class="info-card reveal-up stagger-1">
+                    <h3>Top Attractions</h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Dhikala Zone</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Bijrani Zone</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Corbett Falls</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Garjiya Devi Temple</span>
+                        <span style="background: var(--light-bg); padding: 8px 12px; border-radius: 4px; font-size: 0.9rem;">Ramganga Reservoir</span>
+                    </div>
+                </div>
+
+                <!-- How To Reach -->
+                <div class="info-card reveal-up stagger-2">
+                    <h3>How To Reach</h3>
+                    <p class="text-sm"><strong>By Air:</strong> Pantnagar Airport is the nearest (80 km).</p>
+                    <p class="text-sm" style="margin-top: 5px;"><strong>By Train:</strong> Ramnagar Railway Station is the nearest railhead, well-linked to Delhi.</p>
+                    <p class="text-sm" style="margin-top: 5px;"><strong>By Road:</strong> Excellent connectivity to Delhi (approx. 5-6 hours drive) and Nainital.</p>
+                </div>
+
+                <!-- Travel Tips -->
+                <div class="info-card reveal-up stagger-3">
+                    <h3>Travel Tips</h3>
+                    <p class="text-sm">
+                        - Safari permits are issued on a first-come, first-served basis; book in advance online.<br>
+                        - Carry earth-toned clothing (greens, browns) to blend into the forest environment.<br>
+                        - Do not litter or make loud noises inside the park; respect the silence of the wild.<br>
+                        - Maintain a safe distance from wild animals and follow all guidelines from your guide.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border: none; padding-top: 0;">
+                <p>&copy; 2026 Travel India Blog. Designed for explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="../js/slider.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
