@@ -39,20 +39,25 @@
         <div class="card reveal-up stagger-1" style="padding: var(--spacing-xl); box-shadow: var(--shadow-lg);">
             <form id="contactForm">
                 <div class="form-group">
-                    <label for="name" class="form-label">Full Name</label>
-                    <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                    <label for="user_name" class="form-label">Full Name</label>
+                    <input type="text" id="user_name" name="user_name" class="form-control"
+                        placeholder="Enter your name" required>
                 </div>
                 <div class="form-group">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                    <label for="user_email" class="form-label">Email Address</label>
+                    <input type="email" id="user_email" name="user_email" class="form-control"
+                        placeholder="Enter your email" required>
                 </div>
                 <div class="form-group">
                     <label for="message" class="form-label">Your Message</label>
-                    <textarea id="message" class="form-control" rows="5" placeholder="How can we help you?"
-                        required></textarea>
+                    <textarea id="message" name="message" class="form-control" rows="5"
+                        placeholder="How can we help you?" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%;">Send Message</button>
             </form>
+            <div id="formStatus" class="text-center" style="margin-top: var(--spacing-md); display: none;">
+                <p class="status-msg"></p>
+            </div>
         </div>
     </section>
 
@@ -64,6 +69,44 @@
             </div>
         </div>
     </footer>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        (function () {
+            // Replace with your Public Key from EmailJS Account
+            emailjs.init("Zwt3AaYc_Rq9jx1aQ");
+        })();
+
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const btn = document.getElementById('submitBtn');
+            const statusDiv = document.getElementById('formStatus');
+            const statusMsg = statusDiv.querySelector('.status-msg');
+
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
+
+            // serviceID, templateID, formElement
+            emailjs.sendForm('service_9cz8r16', 'template_pg8i98n', this)
+                .then(function () {
+                    btn.innerText = 'Message Sent!';
+                    statusDiv.style.display = 'block';
+                    statusMsg.innerText = 'Your message has been sent successfully! We will get back to you soon.';
+                    statusMsg.style.color = 'var(--secondary-color)';
+                    document.getElementById('contactForm').reset();
+                }, function (error) {
+                    btn.innerText = 'Send Message';
+                    btn.disabled = false;
+                    statusDiv.style.display = 'block';
+                    statusMsg.innerText = 'Oops! Something went wrong. Please try again later.';
+                    statusMsg.style.color = 'var(--primary-color)';
+                    console.log('FAILED...', error);
+                });
+        });
+    </script>
 
     <!-- JS -->
     <script src="js/animations.js"></script>
